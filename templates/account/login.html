@@ -1,0 +1,34 @@
+{% extends "account/wrapper.html" %}
+{% load static %}
+{% block content %}
+                <div class="col-md-6 contents p-5 container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="mb-4">
+                                <h1 class="h1 text-center">Quiz<strong>App</strong></h1>
+                                <br>
+                                <h4 class="h4 text-center" class="mb-4">Welcome  back!</h4>
+                                <h4 class="h4 text-center">Please login/Signup to your account</h4>
+                            </div>
+                            <br><br>
+                            <form  method="post">
+                                <div class="form-group first">
+                                    <label for="username">Username</label>
+                                    {{form.username}}
+                                    {% csrf_token %}
+                                </div>
+                                <div class="form-group last mb-4">
+                                    <label for="password">Password</label>
+                                    {{form.password}}
+                                </div>
+                                <div class="d-flex mb-5 align-items-center">
+                                    
+                                    <a href="/register">Create account</a>
+                                </div>
+                                <input type="submit"  class="btn text-white btn-block btn-warning">
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+{% endblock content %}

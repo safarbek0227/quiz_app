@@ -1,0 +1,43 @@
+{% extends "account/wrapper.html" %}
+{% load static %}
+{% block content %}
+                <div class="col-md-6 contents mt-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="mb-4">  
+                                <br>
+                                <h4 class="h4 text-center" class="mb-4">Welcome 
+                                    {% if request.user.first_name %}
+                                        {{request.user.first_name}}
+                                        {{request.user.last_name}}
+                                    {% else %}
+                                        Name is undefined
+                                    {% endif %}</h4>
+                            </div>
+                            <br><br>
+                            <ul class="h4 m-2">
+                                <li class="m-2">shor info : {% if request.user.profile.short_info %}
+                                                                {{request.user.profile.short_info}}
+                                                            {% else %}
+                                                                Info is undefined
+                                                            {% endif %}
+                                </li>
+                                <li class="m-2">
+                                    Date of birthday : {{user.date_of_birth|date:"d/m/Y"}}
+                                </li>
+                                <li class="m-2">
+                                    On site : {{user.user.date_joined|date:"d/m/Y"}}
+                                </li>
+                                <li class="m-2">
+                                    your rank : {{user.rank}}
+                                </li>
+                            </ul>
+                            <br><br>
+                            <a href="{% url 'main:update' user.id %}" class="btn text-white btn-block btn-warning">
+                                Edit profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+{% endblock content %}
