@@ -1,128 +1,137 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
 
-    <meta charset="UTF-8">
-    
-  <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
-  <meta name="apple-mobile-web-app-title" content="CodePen">
-  
-  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
-  
-  <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
-  
-  
-    <title>Congratulations</title>
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700,800">
-    
+<head>
+
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" type="image/png"
+    href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+
+
+
+  <link rel="mask-icon" type="image/x-icon"
+    href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+    color="#111">
+
+
+  <title>Congratulations</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700,800">
+
   <style>
-  body {
-    background: #FFCD2D;
-    padding: 40px;
-    color: rgba(0, 0, 0, 0.6);
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    line-height: 1.7em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  body:before {
-    content: "";
-    position: absolute;
-    background: #3B3B3B;
-    width: 80%;
-    height: 200%;
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
-    border-radius: 100%;
-    transform: translate(-20%, -40%) rotate(30deg);
-  }
-  
-  
-  .modal {
-    z-index: 1000;
-    position: relative;
-    background: #FFF;
-    max-width: 530px;
-    border-radius: 6px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding: 40px 60px 0;
-    overflow: hidden;
-    transform-style: preserve-3d;
-    perspective: 100;
-  }
-  
-  .trophy {
-    display: block;
-    margin: 0 auto 40px;
-  }
-  
-  h1 {
-    display: block;
-    margin: 0 0 20px;
-    color: rgba(0, 0, 0, 0.8);
-    font-size: 24px;
-    font-weight: 400;
-    text-align: center;
-  }
-  
-  p {
-    margin: 0 0 40px;
-    padding: 0 60px;
-    font-size: 18px;
-    text-align: center;
-  }
-  
-  button {
-    outline: 0;
-    background: #3B3B3B;
-    width: 35%;
-    border: 0;
-    border-radius: 100px;
-    box-shadow: 0 5px 10px rgba(42, 120, 221, 0.3);
-    margin: 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    color: #FFF;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  button:last-child {
-    background: #FFCD2D;
-    box-shadow: 0 5px 10px rgba(31, 205, 55, 0.3);
-  }
-  
-  footer {
-    background: #FFF;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.06);
-    margin: 0 -60px;
-    padding: 30px 0;
-    text-align: center;
-  }
+    body {
+      background: #FFCD2D;
+      padding: 40px;
+      color: rgba(0, 0, 0, 0.6);
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
+      line-height: 1.7em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body:before {
+      content: "";
+      position: absolute;
+      background: #3B3B3B;
+      width: 80%;
+      height: 200%;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
+      border-radius: 100%;
+      transform: translate(-20%, -40%) rotate(30deg);
+    }
+
+
+    .modal {
+      z-index: 1000;
+      position: relative;
+      background: #FFF;
+      max-width: 530px;
+      border-radius: 6px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding: 40px 60px 0;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      perspective: 100;
+    }
+
+    .trophy {
+      display: block;
+      margin: 0 auto 40px;
+    }
+
+    h1 {
+      display: block;
+      margin: 0 0 20px;
+      color: rgba(0, 0, 0, 0.8);
+      font-size: 24px;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    p {
+      margin: 0 0 40px;
+      padding: 0 60px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    button {
+      outline: 0;
+      background: #3B3B3B;
+      width: 35%;
+      border: 0;
+      border-radius: 100px;
+      box-shadow: 0 5px 10px rgba(42, 120, 221, 0.3);
+      margin: 0 15px;
+      padding: 15px;
+      box-sizing: border-box;
+      color: #FFF;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:last-child {
+      background: #FFCD2D;
+      box-shadow: 0 5px 10px rgba(31, 205, 55, 0.3);
+    }
+
+    footer {
+      background: #FFF;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.06);
+      margin: 0 -60px;
+      padding: 30px 0;
+      text-align: center;
+    }
   </style>
-  
+
   </script>
-  
-  
-  </head>
-  
-  <body translate="no">
-    <div class="modal"><img class="trophy" src="/static/image/alert.png">
+
+
+</head>
+
+<body translate="no">
+  <div class="modal"><img class="trophy" src="/static/image/alert.png">
     <h1>Congratulations</h1>
-    <p>You score:  {{request.user.profile.rank}}</p>
+    <p>You score: {{request.user.profile.rank}}</p>
     <footer>
       <button>Share</button>
       <button>Have a beer</button>
     </footer>
   </div>
-    
 
-    
-    
-  
-  
-  
-  
-   
-  </body></html>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
