@@ -4,41 +4,34 @@
 <br><br><br><br>
 <div class=" row  offset-sm-1 container">
   <div class="col-md-6 col-xl-6 p-5">
-    {% for quiz in Question %}
-    <h2 class="h1 mb-md-5"> {{ quiz.id }}) savol</h2>
-    <p class=" h1 text-400">{{ quiz.title}}</p>
-
-      <ol type="A">
-        {% for i in quiz.answer.all %}
-        <label class="radio-input">
-            <li class="ml-5">
-            {{i.answer_text}}
-            <input type="radio" name="name" class="check" onclick="check({{i.id}})">
-            <span class="checkmark"></span>
-          </li>
-          </label>
+    <ol>
+      {% for quiz in Question %}
+      <li class="quiz">
+        <h2 class="h1 mb-md-5">savol</h2>
+        <p class=" h1 text-400">{{ quiz.title}}</p>
+    
+          <ol type="A">
+            {% for answer in quiz.answer.all %}
+            <label class="radio-input">
+                <li class="ml-5">
+                {{answer.answer_text}}
+                <input type="radio" name="{{quiz.slug}}" class="check" id="{{answer.id}}">
+                <span class="checkmark"></span>
+              </li>
+              </label>
+            {% endfor %}
+          </ol>
+        </li>
         {% endfor %}
-      </ol>
-    <br><br>
+
+    </ol>
     <div class="d-flex align-items-start mt-5">
       <div>
-        {% if page_obj.has_next %}
-        <a class=" mx-4 ms-1 fa-lg" href="/quiz/?page={{ page_obj.next_page_number }}" onclick="submit()">
-          <div class="btn btn-warning text-light">
-            <i class=" fas fa-chevron-right fa-lg"></i>
-          </div>
-        </a>
-        {% endif %}
-        {% if not  page_obj.has_next %}
-        <a href="/congratulation" class=" mx-4 ms-1 fa-lg"  onclick="submit()" onblur="show()">
-          <div class="btn btn-warning text-light">
+          <button class="btn btn-warning text-light submit">
            submit
-          </div>
-        </a >
-        {% endif %}
+          </button>
       </div>
     </div>
-    {% endfor %}
   </div>
   <div class="col-md-6">
     <img src="/static/image/header.jpg" alt="">
@@ -46,30 +39,4 @@
 </div>
 
 </div>
-<script>
-
-  var id = 0;
-  function check(int){
-      id = int
-  }
-  function submit(){
-    let d = id
-    let data = JSON.stringify(d)
-	  if (window.XMLHttpRequest) {
-      var xhttp=new XMLHttpRequest();
-    } else {  // code for IE6, IE5
-        var xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xhttp.onreadystatechange = function() {
-    if (xhttp.readyState === 4 && xhttp.status === 200) {
-      var data = JSON.parse(this.responseText);
-
-    }
-    }
-    var url = "/check/"
-    xhttp.open("GET", url+`?data=${data}`, true);
-    xhttp.send();
-  }
-  
-</script>
 {% endblock content %}

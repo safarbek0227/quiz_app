@@ -1,14 +1,9 @@
 from django.contrib import admin
 from . import models
 
-# Account 
-@admin.register(models.Profile)
-class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'date_of_birth']
 
 
 @admin.register(models.Category)
-
 class CatAdmin(admin.ModelAdmin):
 	list_display = [
         'name',
@@ -31,15 +26,12 @@ class AnswerInlineModel(admin.TabularInline):
 @admin.register(models.Question)
 
 class QuestionAdmin(admin.ModelAdmin):
-    fields = [
-        'title',
-        'quiz',
-        ]
     list_display = [
         'title', 
         'quiz',
         'date_updated'
         ]
+    prepopulated_fields = {'slug':('title',)}
     inlines = [
         AnswerInlineModel, 
         ] 
@@ -52,3 +44,5 @@ class AnswerAdmin(admin.ModelAdmin):
         'is_right', 
         'question'
         ]
+
+admin.site.register(models.Test)

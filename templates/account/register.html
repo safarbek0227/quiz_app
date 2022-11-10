@@ -1,49 +1,83 @@
-{% extends "account/wrapper.html" %}
-{% load static %}
-{% block content %}
-                <div class="col-md-6 contents mt-5">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <div class="mb-4">
-                                <h1 class="h1 text-center">Quiz<strong>App</strong></h1>
-                                <br>
-                                <h4 class="h4 text-center" class="mb-4">Welcome  back!</h4>
-                                <h4 class="h4 text-center">Please login/Signup to your account</h4>
-                            </div>
-                            <br><br>
-                            <form  method="post">
-                                {% csrf_token %}
-                                <div class="form-group first">
-                                    <label for="username">Username</label><br>
-                                    {{form.username}}
-                                </div>
-                                <div class="form-group first">
-                                    <label for="first_name">First name</label><br>
-                                    {{form.first_name}}
-                                </div>
-                                <div class="form-group first">
-                                    <label for="username">Username</label><br>
-                                    {{form.last_name}}
-                                </div>
-                                <div class="form-group first">
-                                    <label for="Gmail">Gmail</label><br>
-                                    {{form.email}}
-                                </div>
-                                <div class="form-group last mb-4">
-                                    <label for="password">Password</label><br>
-                                    {{form.password}}
-                                </div>
-                                <div class="form-group last mb-4">
-                                    <label for="password">Password</label><br>
-                                    {{form.password2}}
-                                </div>
-                                <div class="d-flex mb-5 align-items-center">
-                                    
-                                </div>
-                                <input type="submit"  class="btn text-white btn-block btn-warning">
-                                
-                            </form>
-                        </div>
-                    </div>
-                </div>
-{% endblock content %}
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Abdurakhmon Rashidov">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
+      integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% block title %}
+    <title>Quiz app - Register</title>
+    {% endblock %}
+  </head>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <div class="box">
+        <div class="columns">
+          <div class="column is-full">
+            <div class="title">Register to get Quizapp !</div>
+
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-full">
+            <form action="" method="post" class="pt-5">
+              {% csrf_token %}
+              {% for i in form %}
+              <h2>{{i.label}}</h2>
+              <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                  {{i}}
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user-shield"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </p>
+              </div>
+              {% if i.errors %}
+              {{i.errors}}
+  
+              <br>
+              {% endif %}
+              {% endfor %}
+              <div class="field">
+                <p class="control">
+                  <button class="button is-success">
+                    Register
+                  </button>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+<style>
+  html{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    
+  }
+
+</style>
+</body>
+
+</html>

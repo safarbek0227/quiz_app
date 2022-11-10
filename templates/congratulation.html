@@ -117,9 +117,20 @@
 <body translate="no">
   <div class="modal"><img class="trophy" src="/static/image/alert.png">
     <h1>Congratulations</h1>
-    <p>You score: {{request.user.profile.rank}}</p>
+    <h2>You last  score: 
+      <ul>
+        <li>
+          <h3>true answer : {{true}}</h3>
+        </li>
+        <li>
+          <h3>false answer : {{false}}</h3>
+        </li>
+        <li>
+          <h3>All question : {{all}}</h3>
+        </li>
+      </ul></h2>
     <footer>
-      <button>Share</button>
+      <button><a href="/profile" style="color: #fff;">Go profile</a></button>
       <button>Have a beer</button>
     </footer>
   </div>

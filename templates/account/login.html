@@ -1,34 +1,79 @@
-{% extends "account/wrapper.html" %}
-{% load static %}
-{% block content %}
-                <div class="col-md-6 contents p-5 container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <div class="mb-4">
-                                <h1 class="h1 text-center">Quiz<strong>App</strong></h1>
-                                <br>
-                                <h4 class="h4 text-center" class="mb-4">Welcome  back!</h4>
-                                <h4 class="h4 text-center">Please login/Signup to your account</h4>
-                            </div>
-                            <br><br>
-                            <form  method="post">
-                                <div class="form-group first">
-                                    <label for="username">Username</label>
-                                    {{form.username}}
-                                    {% csrf_token %}
-                                </div>
-                                <div class="form-group last mb-4">
-                                    <label for="password">Password</label>
-                                    {{form.password}}
-                                </div>
-                                <div class="d-flex mb-5 align-items-center">
-                                    
-                                    <a href="/register">Create account</a>
-                                </div>
-                                <input type="submit"  class="btn text-white btn-block btn-warning">
-                                
-                            </form>
-                        </div>
-                    </div>
+<!doctype html>
+<html lang="en">
+<head>
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Abdurakhmon Rashidov">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    {% block title %}
+    <title>Quiz app - Login</title>
+    {% endblock %}
+</head>
+</head>
+<body>
+<section class="section">
+   <div class="container my-center mt-5">
+       <div class="box p-5">
+       <div class="columns">
+           <div class="column is-full mt-2">
+               <div class="title">Login to get Quizapp !</div>
+               {% if form.errors %}
+               {{form.errors}}
+   
+               <br>
+               {% endif %}
+           </div>
+       </div>
+      <div class="columns">
+         <div class="column is-full pt-5 pb-5">
+             <form action="" method="post">
+              {% csrf_token %}
+                 <div class="field">
+                  <p class="control has-icons-left has-icons-right">
+                    <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" class="input" placeholder="Username">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+                  </p>
                 </div>
-{% endblock content %}
+                 <div class="field">
+                  <p class="control has-icons-left">
+                    <input type="password" name="password" autocomplete="current-password" required="" id="id_password" class="input" placeholder="pasword">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control">
+                    <button class="button is-success" type="submit">
+                      Login
+                    </button>
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control">
+                    <a href="/register/">REgister new account</a>
+                  </p>
+                </div>
+             </form>
+         </div>
+      </div>
+       </div>
+   </div>
+</section>
+
+
+
+
+</body>
+</html>

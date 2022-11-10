@@ -1,43 +1,104 @@
-{% extends "account/wrapper.html" %}
+{% extends '../base.html' %}
 {% load static %}
 {% block content %}
-                <div class="col-md-6 contents mt-5">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <div class="mb-4">  
-                                <br>
-                                <h4 class="h4 text-center" class="mb-4">Welcome 
-                                    {% if request.user.first_name %}
-                                        {{request.user.first_name}}
-                                        {{request.user.last_name}}
-                                    {% else %}
-                                        Name is undefined
-                                    {% endif %}</h4>
+<br><br>
+<br><br>
+
+    <section class="section mt-5 mb-5 pt-5 pb-5">
+        <div class="container">
+
+            <div class="columns">
+                <div class="column is-full">
+                    <div class="columns box mt-1">
+                        <div class="column is-3">
+                            <div class="image is-1by1">
+                            <img class="is-rounded" src="{{ user.image_url }}">
+                            </div><br>
+                            <hr>
+                            <span class="has-text-success is-size-2">
+                               +{{user.likes}}
+                                <i class="fas fa-thumbs-up"></i>
+                            </span>
+                        </div>
+                        <div class="column is-5">
+                            <div class="title">
+                                {% if request.user.first_name %}
+                                    {{request.user.first_name}}
+                                    {{request.user.last_name}}
+                                {% else %}
+                                    Name is undefined
+                                {% endif %}
                             </div>
-                            <br><br>
-                            <ul class="h4 m-2">
-                                <li class="m-2">shor info : {% if request.user.profile.short_info %}
-                                                                {{request.user.profile.short_info}}
-                                                            {% else %}
-                                                                Info is undefined
-                                                            {% endif %}
+
+                            <div class="subtitle">
+                                 {% if request.user.profile.short_info %}
+                                    {{request.user.profile.short_info}}
+                                {% else %}
+                                    Info is undefined
+                                {% endif %}
+                            </div>
+                            <ul>
+                                <li class="is-size-4 mt-2">
+                                    <i class="fas fa-birthday-cake"></i> Date of birthday : {{user.date_of_birth|date:"d/m/Y"}}
                                 </li>
-                                <li class="m-2">
-                                    Date of birthday : {{user.date_of_birth|date:"d/m/Y"}}
-                                </li>
-                                <li class="m-2">
-                                    On site : {{user.user.date_joined|date:"d/m/Y"}}
-                                </li>
-                                <li class="m-2">
-                                    your rank : {{user.rank}}
+                                <li class="is-size-4 mt-2">
+                                    <i class="fas fa-calendar-alt"></i> On site : {{user.user.date_joined|date:"d/m/Y"}}
                                 </li>
                             </ul>
-                            <br><br>
-                            <a href="{% url 'main:update' user.id %}" class="btn text-white btn-block btn-warning">
+                            <a href="{% url 'accounts:update' %}" class="button is-info mt-4">
                                 Edit profile
                             </a>
                         </div>
+                        <div class="column is-4">
+                            <div class="is-center">
+                                <div class="title">
+                                    <table class="table">
+                                        <tr>
+                                            <td width="80%">
+                                              <h3>My Posts</h3>
+                                            </td>
+                                            <td width="10%"></td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                            <div class="table-container">
+                              <table class="table is-hoverable is-fullwidth">
+                                    <thead>
+                                        <tr>
+                                          <th>Quiz name</th>
+                                          <th>True answer </th>
+                                          <th>False answer</th>
+                                          <th>All</th>
+    
+                                        </tr>
+                                      </thead>
+                                    <tfoot>
+                                      {% for ranks in user.rank.all %}
+                                      <tr>
+                                          <td><b>{{ranks.question}}</b></td>
+                                          <td><b>{{ranks.true_answer}} </b></td>
+                                          <td><b>{{ranks.false_answer}}</b></td>
+                                          <td><b>{{ ranks.all_answer}}</b></td>
+                                      </tr>
+                                      {% endfor %}
+                                    </tfoot>
+                              </table>
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
-                
-{% endblock content %}
+
+            </div>
+        </div>
+    </section>
+<br><br>
+<br><br>
+<br><br>
+{% endblock %}
