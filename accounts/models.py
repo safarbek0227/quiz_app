@@ -9,7 +9,6 @@ class Profile(models.Model):
     date_of_birth = models.DateField(blank=True, null=True)
     photo = models.ImageField(upload_to='users/', blank=True, default='/images/alert.png')
     rank = models.ManyToManyField(Test)
-    is_permissions = models/
     short_info = models.TextField(max_length=200, blank=True)
 
 
